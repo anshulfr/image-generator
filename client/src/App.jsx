@@ -4,10 +4,11 @@ export const App = () => {
   const [imageURL, setImageURL] = useState('')
   const [prompt, setPrompt] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+  const serverUrl =  import.meta.env.VITE_SERVER_URL
 
   const fetchImage = () => {
     setIsLoading(true)
-    fetch(`https://backend-ai.nanshul2003.workers.dev/?prompt=${prompt}`)
+    fetch(`${serverUrl}/?prompt=${prompt}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok')
